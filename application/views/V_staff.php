@@ -103,6 +103,8 @@
         <?php foreach ($staff as $terapis): ?>
        <div class="col-md-3">
          <img height="90px" src="<?php echo base_url('assets/upload/pegawai/img/'.$terapis->ava_pegawai) ?>">
+         <br><b><?php echo $terapis->nama_pegawai; ?></b>
+         <br><b>Spesialis : <?php echo $terapis->spesialis_pegawai; ?></b>
        </div>
       <?php endforeach ?>
       </div>

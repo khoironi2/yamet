@@ -106,7 +106,7 @@
 		<div class="HjudulBerita">
 			<div class="col-md-3"></div>
 			<div class="col-md-2"><a href="<?php echo site_url('home')?>"><b>News</b></a></div>
-			<div class="col-md-6"><a href="<?php echo site_url('home/jenisterapi') ?>"><b>Jenis Terapi</b></a></div>
+			<div class="col-md-6"><a href="<?php echo site_url('layanan/kondisi') ?>"><b>Jenis Terapi</b></a></div>
 		</div>
 
 		<div class="row menudepannews">

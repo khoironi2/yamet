@@ -15,7 +15,7 @@
 			$this->load->view('V_staff',$data);
 		}
 		public function terapis() {
-			$data['terapis'] = $this->Pegawai_model->getAllPegawai();
+			$data['staff'] = $this->Pegawai_model->getAllPegawaiterapis();
 			$this->load->view('V_terapis',$data);
 		}
 		public function pegawai() {
