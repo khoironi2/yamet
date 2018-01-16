@@ -48,20 +48,27 @@
 
 		<div class="HjudulBerita">
 			<div class="col-md-3"></div>
-			<div class="col-md-4"><a href="<?php echo site_url('layanan/jenisterapi')?>"><b>Kelas</b></a></div>
-			<div class="col-md-4"><a href="<?php echo site_url('layanan/Fasilitas')?>"><b>Fasilitas lain</b></a></div>
+			<div class="col-md-4"><a href="<?php echo site_url('Fasilitas/Kelas')?>"><b>Kelas</b></a></div>
+			<div class="col-md-4"><a href="<?php echo site_url('Fasilitas/FasilitasLain')?>"><b>Fasilitas Lain</b></a></div>
 		</div>
 	</div>
-	
 	<div class="row putih1">
-		<?php foreach ($fasilitas as $fasilitas): ?>
-			<div class="col-md-3">
-				<img src="<?php echo base_url('assets/upload/fasilitas/'.$fasilitas->gambar_fasilitas)?>" height="200px" >
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+			<div class="table-responsive">
+				<table class="table">
+					<tr>
+						<th><b>Fasilitas Utama</b></th>
+					</tr>
+					<?php foreach ($fasilitas as $key ): ?>
+						<tr>
+							<td><img src="<?php echo base_url('assets/upload/fasilitas/'.$key->gambar_fasilitas)?>" height="200px" ></td>
+						</tr>
+						<td><?php echo $key->isi_fasilitas; ?></td>
+					<?php endforeach  ?>
+				</table>
 			</div>
-			<div class="col-md-8">
-				<p><?php echo $fasilitas->isi_fasilitas; ?></p>
-			</div>
-			 <?php endforeach ?>
+		</div>
 			
 		</div>
 			<div class="footer">

@@ -12,26 +12,24 @@
 	}
 		
 		public function index(){
-			$data['profile'] = $this->Profile_model->getProfile();
+			$data['profile'] = $this->Profile_model->getProfil();
 			$this->load->view('V_profil',$data);
 		}
 
-		public function about_us() {
-
-		}
+	
 
 		public function sejarah() {
-			$data['profile'] = $this->Profile_model->getProfile();
+			$data['profile'] = $this->Profile_model->getProfil();
 			$this->load->view('V_sejarah',$data);
 		}
 
 		public function kurikulum() {
-			$data['profile'] = $this->Profile_model->getProfile();
+			$data['profile'] = $this->Profile_model->getProfil();
 			$this->load->view('V_kurikulum',$data);
 
 		}
 		public function info() {
-			$data['profile'] = $this->Profile_model->getProfile();
+			$data['profile'] = $this->Profile_model->getProfil();
 			$this->load->view('V_info',$data);
 
 		}

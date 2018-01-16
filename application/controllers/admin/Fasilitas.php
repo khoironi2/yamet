@@ -77,9 +77,10 @@
 					$config['new_image'] 		= './assets/upload/layanan/thumbs/';
 					$config['create_thumb'] 	= TRUE;
 					$config['quality'] 			= "100%";
+					$config['max_size'] = '100M'; 
 					$config['maintain_ratio'] 	= FALSE;
-					$config['width'] 			= 200; // Pixel
-					$config['height'] 			= 100; // Pixel
+					$config['width'] 			= 5028; // Pixel
+					$config['height'] 			= 3364; // Pixel
 					$config['x_axis'] 			= 0;
 					$config['y_axis'] 			= 0;
 					$config['thumb_marker'] 	= '';
@@ -88,7 +89,9 @@
 					//PROSES MASUK KEDATABASE
 					$slug = url_title($this->input->post('isi_layanan'), 'dash', TRUE);
 
-					$data = array('isi_fasilitas' 	=> $this->input->post('isi_fasilitas'),
+					$data = array(
+									'isi_fasilitas' 	=> $this->input->post('isi_fasilitas'),
+									'kategori_fasilitas' 	=> $this->input->post('kategori_fasilitas'),
 								  
 								  'gambar_fasilitas'		=> $upload_data['uploads']['file_name']);
 
@@ -130,9 +133,10 @@
 					$config['new_image'] 		= './assets/upload/fasilitas/thumbs/';
 					$config['create_thumb'] 	= TRUE;
 					$config['quality'] 			= "100%";
+					$config['max_size'] = '100M'; 
 					$config['maintain_ratio'] 	= FALSE;
-					$config['width'] 			= 200; // Pixel
-					$config['height'] 			= 100; // Pixel
+					$config['width'] 			= 5028; // Pixel
+					$config['height'] 			= 3364; // Pixel
 					$config['x_axis'] 			= 0;
 					$config['y_axis'] 			= 0;
 					$config['thumb_marker'] 	= '';
@@ -142,7 +146,7 @@
 					$slug = url_title($this->input->post('isi_fasilitas'), 'dash', TRUE);
 					$id_fasilitas = $this->input->post('id_fasilitas');
 					$data = array('isi_fasilitas' 	=> $this->input->post('isi_fasilitas'),
-								  
+								  'kategori_fasilitas' 	=> $this->input->post('kategori_fasilitas'),
 								  'gambar_fasilitas'		=> $upload_data['uploads']['file_name']);
 
 					$this->Fasilitas_model->updateFasilitas( $id_fasilitas ,$data);

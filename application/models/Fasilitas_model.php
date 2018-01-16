@@ -9,6 +9,27 @@
 		$this->db->select('*');
 		$this->db->from('tbl_fasilitas');
 		
+		
+		$result = $this->db->get();
+
+		return $result->result();
+	}
+
+	public function getAllFasilitasUtama() {
+		$this->db->select('*');
+		$this->db->from('tbl_fasilitas');
+		$this->db->where('kategori_fasilitas','utama');
+		
+		$result = $this->db->get();
+
+		return $result->result();
+	}
+
+	public function getAllFasilitasLain() {
+		$this->db->select('*');
+		$this->db->from('tbl_fasilitas');
+		$this->db->where('kategori_fasilitas','lain');
+		
 		$result = $this->db->get();
 
 		return $result->result();

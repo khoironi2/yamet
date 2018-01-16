@@ -41,6 +41,8 @@ class Profile extends CI_Controller {
 						  'tentang_klinik'	=> $this->input->post('tentang_klinik'),
 						  'sejarah_klinik'	=> $this->input->post('sejarah_klinik'),
 						  'alamat_klinik'	=> $this->input->post('alamat_klinik'),
+						  'info_klinik'		=> $this->input->post('info_klinik'),
+						  'kurikulum_klinik'	=> $this->input->post('kurikulum_klinik'),
 						  'notelp_klinik'	=> $this->input->post('notelp_klinik'));
 
 			$id_klinik = $this->input->post('id_klinik');

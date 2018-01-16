@@ -11,6 +11,13 @@ class Profile_model extends CI_Model {
 
 		return $result->row();
 	}
+	public function getProfil() {
+		$this->db->select('*');
+		$this->db->from('tbl_profilklinik');
+
+		$query=$this->db->get();
+		return $query->result();
+	}
 
 
 

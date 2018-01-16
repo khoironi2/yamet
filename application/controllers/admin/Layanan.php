@@ -77,9 +77,10 @@
 					$config['new_image'] 		= './assets/upload/layanan/thumbs/';
 					$config['create_thumb'] 	= TRUE;
 					$config['quality'] 			= "100%";
+					$config['max_size'] = '100M'; 
 					$config['maintain_ratio'] 	= FALSE;
-					$config['width'] 			= 200; // Pixel
-					$config['height'] 			= 100; // Pixel
+					$config['width'] 			= 5028; // Pixel
+					$config['height'] 			= 3364; // Pixel
 					$config['x_axis'] 			= 0;
 					$config['y_axis'] 			= 0;
 					$config['thumb_marker'] 	= '';
@@ -134,9 +135,10 @@
 					$config['new_image'] 		= './assets/upload/layanan/thumbs/';
 					$config['create_thumb'] 	= TRUE;
 					$config['quality'] 			= "100%";
+					$config['max_size'] = '100M'; 
 					$config['maintain_ratio'] 	= FALSE;
-					$config['width'] 			= 200; // Pixel
-					$config['height'] 			= 100; // Pixel
+					$config['width'] 			= 5028; // Pixel
+					$config['height'] 			= 3364; // Pixel
 					$config['x_axis'] 			= 0;
 					$config['y_axis'] 			= 0;
 					$config['thumb_marker'] 	= '';

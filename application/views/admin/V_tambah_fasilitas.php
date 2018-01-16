@@ -179,6 +179,15 @@
 							<td><textarea name="isi_fasilitas" ></textarea></td>
 
 						</tr>
+
+						<tr><td>Kategori</td>
+							<td>
+								<select name="kategori_fasilitas">
+									<option>utama</option>
+									<option>lain</option>
+								</select>
+							</td>
+						</tr>
 						<tr><td>Gamabar</td>
 							<td><input type="file" name="gambar_fasilitas" ></td>
 						</tr>

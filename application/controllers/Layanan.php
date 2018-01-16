@@ -19,8 +19,8 @@
 		$this->load->view('V_layanan',$data);
 	}
 	public function melayani(){
-		$data ['fasilitas'] = $this->Fasilitas_model->getAllFasilitas();
-		$this->load->view('V_fasilitas',$data);
+		$data ['fasilitas'] = $this->Layanan_model->getAllLayanan();
+		$this->load->view('V_melayani',$data);
 	}
 	public function kondisi(){
 		$data ['jenisterapi'] = $this->Jenisterapi_model->getAllJenisTerapi();

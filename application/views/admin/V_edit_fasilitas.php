@@ -180,6 +180,15 @@
 								<textarea name="isi_fasilitas" ><?php echo $fasilitas->isi_fasilitas; ?></textarea></td>
 
 						</tr>
+						<tr><td>Kategori</td>
+							<td>
+								<select name="kategori_fasilitas">
+									<option><?php echo $fasilitas->kategori_fasilitas; ?></option>
+									<option>utama</option>
+									<option>lain</option>
+								</select>
+							</td>
+						</tr>
 						<tr><td>Gamabar</td>
 							<td><input type="file" name="gambar_fasilitas" ><img height="90px" src="<?php echo base_url('assets/upload/fasilitas/'.$fasilitas->gambar_fasilitas); ?>"></td>
 						</tr>

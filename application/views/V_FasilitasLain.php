@@ -41,96 +41,38 @@
 			</ul>
 			</ul>
 		</div>
-
-		<div class="Lbody">
+	<div class="Lbody">
 			<center><img src="<?php echo base_url('assets/img/yamet1.jpg') ?>"></center>
 		</div>
+	
 
 		<div class="HjudulBerita">
 			<div class="col-md-3"></div>
-			<div class="col-md-4"><a href="<?php echo site_url('layanan/kondisi')?>"><b>Kondisi yang Di Layani</b></a></div>
-			<div class="col-md-4"><a href="<?php echo site_url('layanan/melayani')?>"><b>Melayani</b></a></div>
+			<div class="col-md-4"><a href="<?php echo site_url('Fasilitas/Kelas')?>"><b>Kelas</b></a></div>
+			<div class="col-md-4"><a href="<?php echo site_url('Fasilitas/FasilitasLain')?>"><b>Fasilitas Lain</b></a></div>
 		</div>
-
-		
-
-		<div class="menutengahpost">
-			<!-- <div class="col-md-3">
-				
-
+	</div>
+	
+	<div class="row putih1">
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+			<div class="table-responsive">
 				<table class="table">
 					<tr>
-						<th><h2>News</h2></th>
+						<th><b>Fasilitas Lain</b></th>
 					</tr>
-
+					<?php foreach ($fasilitaslain as $key ): ?>
 						<tr>
-							<td><a href="#link artikel "><?php echo $profile->nama_klinik ?></a></td>
+							<td><img src="<?php echo base_url('assets/upload/fasilitas/'.$key->gambar_fasilitas)?>" height="200px" ></td>
 						</tr>
+						<td><?php echo $key->isi_fasilitas; ?></td>
+					<?php endforeach  ?>
 				</table>
-			</div> -->
-			
-<!-- 				<div class="col-md-4"><img src="<?php echo base_url('assets/upload/layanan/autis.jpg')?>">	</div>
- -->				
-				<div class="col-md-5">
-					<table class="table">
-						<tr>
-							<th><b>Jenis Terapi</b></th>
-							<th><b>Biaya</b></th>
-						</tr>
-						<?php foreach ($jenisterapi as $jenisterapi): ?>
-							<tr>
-								<td><?php echo $jenisterapi->jenis_terapi; ?></td>
-								<td><?php echo $jenisterapi->biaya_terapi; ?></td>
-							</tr>
-							<?php endforeach ?>
-					</table>
-			
-				
-				
 			</div>
 		</div>
-
-<!-- 	<div class="row putih1">
 			
-			<div class="col-md-12">
-				
-				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" role="listbox">
-  
-    <div class="carousel-item active">
-     <div class="col-md-4"> <img class="d-block img-fluid" src="<?php echo base_url('assets/upload/layanan/autis.jpg')?>" height="200px" alt="First slide"></div>
-     <div class="col-md-7">
-     	<p><p><em>Autisme</em>&nbsp;adalah kelainan perkembangan sistem saraf pada seseorang yang kebanyakan diakibatkan oleh faktor hereditas dan kadang-kadang telah dapat dideteksi sejak bayi berusia 6 bulan. Deteksi dan terapi sedini mungkin akan menjadikan si penderita lebih dapat menyesuaikan dirinya dengan yang normal.</p>
-     </div>
-        
-    </div>
-  
-     	<?php foreach ($layanan as $layanan): ?>
-    <div class="carousel-item">
-      <div class="col-md-4">
-      	<img class="d-block img-fluid" src="<?php echo base_url('assets/upload/layanan/'.$layanan->gambar_layanan)?>" height="200px" alt="Second slide">
-      </div>
-    <div class="col-md-7">
-    	<p><?php echo $layanan->isi_layanan; ?></p>
-    </div>
-    </div>
-
-       <?php endforeach ?>
-   
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-			</div>
-		</div> -->
-
-		<div class="footer">
+		</div>
+			<div class="footer">
 			 
 			<div class="logobawah">
 			<img class="d-block img-fluid" src="<?php echo base_url('assets/img/ikonYamet.png')?>">	
@@ -152,10 +94,8 @@
 			
 		</div>
 		
-	</div>
-		
 
-	
+	</div>
 
 </body>
 </html>

@@ -74,16 +74,22 @@
 			
 		</div>
 
-		<div class="menutengahpost">
+		<div class="row  menutengahpost">
 			
-			
-				<!-- <div class="col-md-4"><img src="<?php echo base_url('assets/img/profil1.png')?>">	</div> -->
-				
-				<div class="col-md-5">
-					<h2>Tentang Kami</h2>
-				<p> Klinik Tumbuh Kembang Anak YAMET (Yayasan Medical Exercise Therapy) adalah klinik yangmembantu tumbuh kembang anak (umur 0 bulansampaiusia 14 tahun (praremaja)) supayaoptimal tumbuh kembangnya menjadikan mandiri, kreatif, pintar, dan berprestasi.</p>
-			
-				
+			<div class="col-md-1"></div>
+			<div class="col-md-11">
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<th><b>Tentang Kami</b></th>
+						</tr>
+						<?php foreach ($profile as $key): ?>
+							<tr>
+								<td><b><?php echo $key->tentang_klinik  ?></b></td>
+							</tr>
+						<?php endforeach ?>
+					</table>
+				</div>
 			</div>
 		</div>
 

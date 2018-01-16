@@ -177,31 +177,45 @@
 						<?php echo form_open('admin/profile/updateprofile'); ?>
 					<table class="table">
 						<tr>
-							<td>Nama</td>
+							<td><b>Nama</b></td>
 							<input type="text" name="id_klinik" value="<?php echo $profile->id_klinik ?>" hidden><td>
 								<input type="text" name="nama_klinik" value="<?php echo $profile->nama_klinik ?>" class="form-control" required>
 							</td>
 						</tr>
 						<tr>
-							<td>tentang</td>
+							<td><b>tentang</b></td>
 							<td>
 								<textarea name="tentang_klinik"><?php echo $profile->tentang_klinik; ?></textarea>
 							</td>
 						</tr>
 						<tr>
-							<td>sejarah</td>
+							<td><b>sejarah</b></td>
 							<td>
 								<textarea name="sejarah_klinik"><?php echo $profile->sejarah_klinik; ?></textarea>
 							</td>
 						</tr>
+
 						<tr>
-							<td>alamat</td>
+							<td><b>Info</b></td>
+							<td>
+								<textarea name="info_klinik"><?php echo $profile->info_klinik; ?></textarea>
+							</td>
+						</tr>
+
+						<tr>
+							<td><b>Kurikulum</b></td>
+							<td>
+								<textarea name="kurikulum_klinik"><?php echo $profile->kurikulum_klinik; ?></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td><b>alamat</b></td>
 							<td>
 								<input type="text" name="alamat_klinik" value="<?php echo $profile->alamat_klinik; ?>" class="form-control" required>
 							</td>
 						</tr>
 						<tr>
-							<td>notelp</td>
+							<td><b>notelp</b></td>
 							<td>
 								<input type="text" name="notelp_klinik" value="<?php echo $profile->notelp_klinik; ?>" class="form-control" required>
 							</td>
