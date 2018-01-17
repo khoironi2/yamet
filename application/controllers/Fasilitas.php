@@ -12,6 +12,7 @@
 		$this->load->model('Layanan_model');
 		$this->load->model('Fasilitas_model');
 		$this->load->model('Jenisterapi_model');
+		$this->load->model('Kelas_model');
 	}
 
 	public function index(){
@@ -24,7 +25,8 @@
 	// }
 
 	public function Kelas (){
-		$this->load->view('V_kelas');
+		$data ['kelas'] = $this->Kelas_model->getAllkelas(); 
+		$this->load->view('V_kelas',$data);
 	}
 
 	public function FasilitasLain (){

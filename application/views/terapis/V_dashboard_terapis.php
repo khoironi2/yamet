@@ -107,7 +107,7 @@
 						<td> <?php echo $pegawai->username_pegawai; ?></td>
 						<?php echo form_open('terapis/dashboard/updateUser'); ?>
 						<input type="hidden" name="username_pegawai" value="<?php echo $pegawai->username_pegawai; ?>">
-						<td> <input type="password" name="password_pegawai" value="<?php echo $pegawai->password_pegawai; ?>"></td>
+						<td> <input type="text" name="password_pegawai" value="<?php echo $pegawai->password_pegawai; ?>"></td>
 					
 						<td><button type="submit" class="btn btn-success">Update</button></td>
 						<?php echo form_close(); ?>

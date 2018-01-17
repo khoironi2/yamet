@@ -13,33 +13,28 @@
 		
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row putih1">
-			
-			<hr style="border-color: transparent;">
-			<div class="col-md-11"></div>
-			<div class="col-md-1">
-				<?php if($this->session->userdata('logged_in')) { ?>
-					<a href="<?php echo site_url('auth/logOut')?>"><button type="button" class="btn btn-info">Log Out</button></a>
-				<?php } else { ?>
-					<a href="<?php echo site_url('auth')?>"><button type="button" class="btn btn-info">Login</button></a>
-				<?php } ?>
-			</div>
-			<hr style="border-color: transparent;">
-			<hr style="border-color: transparent;">
-			<hr style="border-color: transparent;">
-			
-		</div>
-		<div class="row ">
-			<div class="col-md-12 menu">
-					<ul>
-						<li><a href="<?php echo site_url('home')?>">Beranda</a></li>
-						<li><a href="<?php echo site_url('profil')?>">Profil</a></li>
-						<li><a href="">Logo</a></li>
-						<li><a href="<?php echo site_url('layanan')?>">Fasilitas &#38; Layanan</a></li>
- 						<li><a href="<?php echo site_url('staff')?>">Staff</a></li>
-					</ul>
-				</div>
+	<div class="wrapper">
+		<div class="header">
+			<ul>
+				<li><a style="color: #f2f2f2;" href="<?php echo site_url('home')?>">Beranda</a></li>
+				<li><a href="<?php echo site_url('profil')?>">Profil</a></li>
+				<li><a href="<?php echo site_url('fasilitas')?>">Fasilitas</a></li>
+				<li>
+					<div class="">
+						<img class="" style="width: 160px; z-index: 10;" src="<?php echo base_url('assets/img/ikonYamet.png')?>">
+					</div>
+				</li>
+				<li><a href="<?php echo site_url('layanan')?>">Layanan</a></li>
+ 				<li><a href="<?php echo site_url('staff')?>">Staff</a></li>
+ 				<li>
+ 					<?php if($this->session->userdata('logged_in')) { ?>
+						<a href="<?php echo site_url('auth/logOut')?>"><!-- <button type="button" class="btn btn-info"> -->Log Out<!-- </button> --></a>
+					<?php } else { ?>
+						<a href="<?php echo site_url('auth')?>"><!-- <button type="button" class="btn btn-info"> -->Login<!-- </button> --></a>
+					<?php } ?>
+ 				</li>
+			</ul>
+			</ul>
 		</div>
 		<div class="row putih2">
 			<div class="col-md-12">
@@ -50,8 +45,8 @@
 						<table class="table" >
 							<tr>
 								<td style="text-align: center;">
-									<?php if($pegawai->ava_pegawai != "") { ?>
-										<img src="<?php echo base_url('assets/upload/pegawai/img/'.$pegawai->ava_pegawai)?>" alt="Gambar Profile" height="90px">
+									<?php if($admin->ava_pegawai != "") { ?>
+										<img src="<?php echo base_url('assets/upload/pegawai/img/'.$admin->ava_pegawai)?>" alt="Gambar Profile" height="90px">
 									<?php } else { ?>
 										<img src="<?php echo base_url('assets/img/avatar1.png')?>" alt="Gambar Profile" height="90px">
 									<?php } ?>
@@ -152,18 +147,20 @@
 
 		
 
-		<div class="row hijau1">
-			<div class="col-md-2 ">
-				
-				
-					<b>Logo</b>
-				
+		<div class="footer">
+			 
+			<div class="logobawah">
+				<img class="d-block img-fluid" src="<?php echo base_url('assets/img/ikonYamet.png')?>">	
 			</div>
-			<div class="col-md-7"></div>
-			<div class="col-md-3">
-				
-			<b style="color: #f2f2f2">Copyrigth2017 YametDesignbyOlivia</b>
-			
+
+			<div class="sosialIkon">
+				<img src="<?php echo base_url('assets/img/ikonIg.png')?>">
+				<img src="<?php echo base_url('assets/img/ikonFB.png')?>">
+			</div>
+			 
+			<div class="copyrigth">
+				<b >Copyright © 2017</b>
+				<p>Yamet Child Development Center</p>
 			</div>
 		</div>
 

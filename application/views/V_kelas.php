@@ -54,8 +54,22 @@
 	</div>
 	
 	<div class="row putih1">
-		<h1>KELAS</h1>
-			
+		<div class="col-md-1"></div>
+		<div class="col-md-11">
+			<div class="table-responsive">
+				<table class="table">
+					<tr>
+						<th><b>Kelas Yamet Klinik</b></th>
+					</tr>
+					<?php foreach ($kelas as $key ): ?>
+						<tr>
+							<td><img src="<?php echo base_url('assets/upload/kelas/'.$key->gambar_kelasklinik)?>" height="200px" ></td>
+						</tr>
+						<td><?php echo $key->isi_kelasklinik; ?></td>
+					<?php endforeach  ?>
+				</table>
+			</div>
+		</div>
 		</div>
 			<div class="footer">
 			 

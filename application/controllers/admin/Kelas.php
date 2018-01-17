@@ -2,7 +2,7 @@
 	/**
 	* 
 	*/
-	class Layanan extends CI_Controller
+	class Kelas extends CI_Controller
 	{
 		
 		public function __construct() {
@@ -15,8 +15,6 @@
 		}
 
 		$this->load->model('Pegawai_model');
-		$this->load->model('Layanan_model');
-		$this->load->model('Fasilitas_model');
 		$this->load->model('Kelas_model');
 	}
 
@@ -24,50 +22,50 @@
 		$id_pegawai = $this->session->userdata('id_pegawai');
 		$username_pegawai = $this->session->userdata('username');
 		$data ['pegawai'] = $this->Pegawai_model->getDetailDataPegawai($id_pegawai, $username_pegawai); 
-		$data ['fasilitas'] = $this->Fasilitas_model->getAllFasilitas(); 
-		$data ['layanan'] = $this->Layanan_model->getAllLayanan(); 
 		$data ['kelas'] = $this->Kelas_model->getAllkelas(); 
-		$this->load->view('admin/V_layanan',$data);
+		$this->load->view('V_kelas',$data);
 	}
-
-	public function tambah_layanan(){
-		$id_pegawai = $this->session->userdata('id_pegawai');
-		$username_pegawai = $this->session->userdata('username');
-		$data ['pegawai'] = $this->Pegawai_model->getDetailDataPegawai($id_pegawai, $username_pegawai); 
-		
-		$this->load->view('admin/V_tambah_layanan',$data);
-	}
-	public function delete($id_layanan) {
-		$data['layanan'] = $this->Layanan_model->deleteLayanan($id_layanan);
+	public function delete($id_kelasklinik) {
+		$data['kelas'] = $this->Kelas_model->deleteKelas($id_kelasklinik);
 		redirect('admin/layanan');
 	}
-	public function edit($id_layanan) {
+
+	public function edit($id_kelasklinik) {
+		$id_pegawai = $this->session->userdata('id_pegawai');
+		$username_pegawai = $this->session->userdata('username');
+		$data ['pegawai'] = $this->Pegawai_model->getDetailDataPegawai($id_pegawai, $username_pegawai); 
+
+		$data['kelas'] = $this->Kelas_model->getKelasById($id_kelasklinik);
+		$this->load->view('admin/V_edit_kelas', $data);
+	}
+
+	public function tambah_kelas(){
 		$id_pegawai = $this->session->userdata('id_pegawai');
 		$username_pegawai = $this->session->userdata('username');
 		$data ['pegawai'] = $this->Pegawai_model->getDetailDataPegawai($id_pegawai, $username_pegawai); 
 		
-		$data['layanan'] = $this->Layanan_model->getLayananById($id_layanan);
-		$this->load->view('admin/V_edit_layanan', $data);
+		$this->load->view('admin/V_tambah_kelas',$data);
 	}
 
-	public function doTambahLayanan() {
-			$this->form_validation->set_rules('isi_layanan', 'isi_layanan', 'required',
+
+	public function doTambahKelas() {
+			$this->form_validation->set_rules('isi_kelasklinik', 'isi_kelasklinik', 'required',
 										array('required' => 'Judul Post Harus di Input'));
 
 			
 
 			if($this->form_validation->run() ===  FALSE) {
-				$this->edit();
+				$this->tambah_kelas();
 			} else {
 				//CONFIGURASI UPLOAD IMAGE
-				$config['upload_path'] 		= './assets/upload/layanan';
+				$config['upload_path'] 		= './assets/upload/kelas';
 				$config['allowed_types'] 	= 'jpg|png|svg';
 				$config['max_size'] 		= '12000';
 
 				$this->load->library('upload', $config);
 
 				//PROSES UPLOAD IMAGE
-				if(! $this->upload->do_upload('gambar_layanan')) {
+				if(! $this->upload->do_upload('gambar_kelasklinik')) {
 					$data['errors'] 	= $this->upload->display_errors();
 					print_r($data);
 				} else {
@@ -75,8 +73,8 @@
 					$upload_data				= array('uploads' =>$this->upload->data());
 					// Image Editor
 					$config['image_library']	= 'gd2';
-					$config['source_image'] 	= './assets/upload/layanan/'.$upload_data['uploads']['file_name']; 
-					$config['new_image'] 		= './assets/upload/layanan/thumbs/';
+					$config['source_image'] 	= './assets/upload/kelas/'.$upload_data['uploads']['file_name']; 
+					$config['new_image'] 		= './assets/upload/kelas/thumbs/';
 					$config['create_thumb'] 	= TRUE;
 					$config['quality'] 			= "100%";
 					$config['max_size'] = '100M'; 
@@ -89,43 +87,41 @@
 					$this->load->library('image_lib', $config);
 					$this->image_lib->resize();
 					//PROSES MASUK KEDATABASE
-					$slug = url_title($this->input->post('isi_layanan'), 'dash', TRUE);
+					$slug = url_title($this->input->post('isi_kelasklinik'), 'dash', TRUE);
 
-					$data = array('isi_layanan' 	=> $this->input->post('isi_layanan'),
+					$data = array(
+									'isi_kelasklinik' 	=> $this->input->post('isi_kelasklinik'),
+									'kategori_kelasklinik' 	=> $this->input->post('kategori_kelasklinik'),
 								  
-								  'gambar_layanan'		=> $upload_data['uploads']['file_name']);
+								  'gambar_kelasklinik'		=> $upload_data['uploads']['file_name']);
 
-					$this->Layanan_model->insertLayanan($data);
+					$this->Kelas_model->insertKelas($data);
 
-					$this->session->set_flashdata('sukses', 'Berita Berhasil di Tambahkan');
+					$this->session->set_flashdata('sukses', 'Kelas Berhasil di Tambahkan');
 
 					redirect(site_url('admin/layanan'));
 				}
 			}
 		}
 
-
-
-
-
-		public function doUpdateLayanan() {
-			$this->form_validation->set_rules('isi_layanan', 'isi_layanan', 'required',
+		public function doUpdate() {
+			$this->form_validation->set_rules('isi_kelasklinik', 'isi_kelasklinik', 'required',
 										array('required' => 'Judul Post Harus di Input'));
 
 			
 
 			if($this->form_validation->run() ===  FALSE) {
-				$this->tambah_layanan();
+				$this->tambah_kelas();
 			} else {
 				//CONFIGURASI UPLOAD IMAGE
-				$config['upload_path'] 		= './assets/upload/layanan';
+				$config['upload_path'] 		= './assets/upload/kelas';
 				$config['allowed_types'] 	= 'jpg|png|svg';
 				$config['max_size'] 		= '12000';
 
 				$this->load->library('upload', $config);
 
 				//PROSES UPLOAD IMAGE
-				if(! $this->upload->do_upload('gambar_layanan')) {
+				if(! $this->upload->do_upload('gambar_kelasklinik')) {
 					$data['errors'] 	= $this->upload->display_errors();
 					print_r($data);
 				} else {
@@ -133,8 +129,8 @@
 					$upload_data				= array('uploads' =>$this->upload->data());
 					// Image Editor
 					$config['image_library']	= 'gd2';
-					$config['source_image'] 	= './assets/upload/layanan/'.$upload_data['uploads']['file_name']; 
-					$config['new_image'] 		= './assets/upload/layanan/thumbs/';
+					$config['source_image'] 	= './assets/upload/kelas/'.$upload_data['uploads']['file_name']; 
+					$config['new_image'] 		= './assets/upload/kelas/thumbs/';
 					$config['create_thumb'] 	= TRUE;
 					$config['quality'] 			= "100%";
 					$config['max_size'] = '100M'; 
@@ -147,15 +143,15 @@
 					$this->load->library('image_lib', $config);
 					$this->image_lib->resize();
 					//PROSES MASUK KEDATABASE
-					$slug = url_title($this->input->post('isi_layanan'), 'dash', TRUE);
-					$id_layanan = $this->input->post('id_layanan');
-					$data = array('isi_layanan' 	=> $this->input->post('isi_layanan'),
-								  
-								  'gambar_layanan'		=> $upload_data['uploads']['file_name']);
+					$slug = url_title($this->input->post('isi_kelasklinik'), 'dash', TRUE);
+					$id_kelasklinik = $this->input->post('id_kelasklinik');
+					$data = array('isi_kelasklinik' 	=> $this->input->post('isi_kelasklinik'),
+								  'kategori_kelasklinik' 	=> $this->input->post('kategori_kelasklinik'),
+								  'gambar_kelasklinik'		=> $upload_data['uploads']['file_name']);
 
-					$this->Layanan_model->updateLayanan( $id_layanan ,$data);
+					$this->Kelas_model->updateKelas( $id_kelasklinik ,$data);
 
-					$this->session->set_flashdata('sukses', 'Berita Berhasil di Tambahkan');
+					$this->session->set_flashdata('sukses', 'Kelas Berhasil di Update');
 
 					redirect(site_url('admin/layanan'));
 				}

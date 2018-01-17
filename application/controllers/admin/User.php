@@ -23,6 +23,9 @@ class User extends CI_Controller {
 	// Fungsi ini di gunakan untuk menambahkan login pegawai, yang memungkinkan 
 	// Satu pegawai bisa memiliki lebih dari satu akun login
 	public function tambahUser() {
+		$id_pegawai = $this->session->userdata('id_pegawai');
+		$username_pegawai = $this->session->userdata('username');
+		$data ['admin'] = $this->Pegawai_model->getDetailDataPegawai($id_pegawai, $username_pegawai);
 		$data['pegawai'] = $this->Pegawai_model->getAllPegawai();
 		$this->load->view('admin/V_tambah_user', $data);
 	}

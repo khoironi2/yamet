@@ -183,6 +183,10 @@
 							<a href="<?php echo site_url('admin/fasilitas/tambah_fasilitas') ?>">
 								<button type="button" class="btn btn-success">++ Fasilitas</button>
 							</a>
+
+							<a href="<?php echo site_url('admin/Kelas/tambah_kelas') ?>">
+								<button type="button" class="btn btn-success">++ Kelas</button>
+							</a>
 						</th>
 						</tr>
 						<tr>
@@ -226,6 +230,29 @@
 								</td>
 							</tr>
 					<?php endforeach ?>
+
+					<tr>
+							<th style="background-color: #1abc9c; color: white;">isi kelas</th>
+							<th style="background-color: #1abc9c; color: white;">gambar</th>
+							<th colspan="2" style="background-color: #1abc9c; color: white;">action</th>
+						</tr>
+
+						<?php foreach ($kelas as $kelas): ?>
+							<tr>
+								<td><?php echo $kelas->isi_kelasklinik; ?></td>
+								<td><img src="<?php echo base_url('assets/upload/kelas/'.$kelas->gambar_kelasklinik) ?>" height="150px"></td>
+								<td>
+									<a href="<?php echo site_url('admin/kelas/edit/'.$kelas->id_kelasklinik) ?>" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i> Sunting</a>
+								</td>
+								<td>
+
+									<a href="<?php echo site_url('admin/kelas/delete/'.$kelas->id_kelasklinik) ?>">
+								<button type="button" class="btn btn-danger">Delete</button>
+							</a>
+								</td>
+							</tr>
+					<?php endforeach ?>
+
 					</table>
 					</div>
 					<hr style="color: black;">
